@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Titanic Survival Prediction</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 40px;
+            background-color: #f5f5f5;
+        }
+        h2 {
+            color: #2c3e50;
+        }
+        form {
+            background-color: #ecf0f1;
+            padding: 20px;
+            border-radius: 10px;
+            width: 350px;
+        }
+        input, select {
+            width: 100%;
+            padding: 8px;
+            margin: 8px 0;
+        }
+        input[type="submit"] {
+            background-color: #3498db;
+            color: white;
+            border: none;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+            background-color: #2980b9;
+        }
+        h3 {
+            margin-top: 20px;
+            color: #e74c3c;
+        }
+    </style>
+</head>
+<body>
+    <h2>Titanic Survival Prediction</h2>
+    <form method="POST">
+        <label>Pclass:</label>
+        <input type="number" name="Pclass" min="1" max="3" required>
+
+        <label>Sex:</label>
+        <select name="Sex" required>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+        </select>
+
+        <label>Age:</label>
+        <input type="number" name="Age" step="0.1" required>
+
+        <label>SibSp:</label>
+        <input type="number" name="SibSp" min="0" required>
+
+        <label>Fare:</label>
+        <input type="number" name="Fare" step="0.01" required>
+
+        <input type="submit" value="Predict">
+    </form>
+
+    <h3>{{ result }}</h3>
+</body>
+</html>

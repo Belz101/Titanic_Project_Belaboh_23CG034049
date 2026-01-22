@@ -7,6 +7,7 @@
 from flask import Flask, render_template, request
 import joblib
 import numpy as np
+import os
 
 # Initialize Flask app
 app = Flask(__name__)
@@ -40,5 +41,9 @@ def home():
 
     return render_template("index.html", result=result)
 
+
+# Single __main__ block for both local and deployment
 if __name__ == "__main__":
-    app.run(debug=True)
+    port = int(os.environ.get("PORT", 5000))
+    debug_mode = True if os.environ.get("FLASK_DEBUG", "1") == "1" else False
+    app.run(host="0.0.0.0", port=port, debug=debug_mode)
